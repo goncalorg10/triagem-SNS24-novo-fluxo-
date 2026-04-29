@@ -15,9 +15,10 @@
 % ============================================================
 
 :- consult('base_conhecimento.pl').
-:- consult('base_dados.pl').
+:- consult('testes.pl').
 :- consult('certeza.pl').
 :- consult('regras_geradas.pl').
+:- consult('historico.pl').
 
 % ============================================================
 % INFERENCIA PRINCIPAL

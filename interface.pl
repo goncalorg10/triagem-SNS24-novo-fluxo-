@@ -275,6 +275,9 @@ dar_resultado :-
     mostrar_resultado(R),
     nl,
     write('=========================================='), nl, nl,
+    % Registar triagem no historico
+    findall(S, sintoma(S), Sintomas),
+    registar_triagem(Sintomas, R),
     perguntar_explicacao(R).
 
 % ============================================================
