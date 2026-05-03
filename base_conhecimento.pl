@@ -226,7 +226,6 @@ encaminhamento(autocuidado) :-
     \+ sintoma(outros_sintomas), \+ sintoma(condicao_risco).
 
 % ------------------------------------------------------------
-% FALLBACK - Rede de seguranca final
 %
 % Se o utente entrou no algoritmo mas nenhuma regra disparou
 % (respondeu nao a todos os sintomas especificos),
@@ -235,3 +234,15 @@ encaminhamento(autocuidado) :-
 
 encaminhamento(adr_csp) :-
     sintoma(entrou_algoritmo).
+
+% ------------------------------------------------------------
+% REGRAS GERADAS AUTOMATICAMENTE - Parte B (fallback)
+%
+% Se nenhuma regra manual encaminhar o utente,
+% o sistema tenta as regras geradas pela Decision Tree.
+% As regras manuais têm sempre prioridade por estarem
+% definidas antes no ficheiro.
+% ------------------------------------------------------------
+
+encaminhamento(Resultado) :-
+    encaminhamento_ml(Resultado).

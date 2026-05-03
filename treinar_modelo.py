@@ -128,3 +128,24 @@ for r in regras[:3]:
     print(r)
     print()
 print('============================================================')
+
+# ============================================================
+# 7. VISUALIZACAO DA ARVORE DE DECISAO
+# ============================================================
+
+from sklearn.tree import plot_tree
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(60, 30))
+plot_tree(modelo,
+          feature_names=colunas,
+          class_names=sorted(y.unique()),
+          filled=True,
+          rounded=True,
+          fontsize=6,
+          ax=ax)
+plt.title('Arvore de Decisao - Sistema de Triagem SNS24', fontsize=16)
+plt.savefig('arvore_decisao.png', dpi=150, bbox_inches='tight')
+plt.close()
+print('  Imagem da arvore guardada: arvore_decisao.png')
+print('============================================================')
